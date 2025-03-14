@@ -1,0 +1,1472 @@
+. Simple Pyramid Pattern in C++
+Method 1:
+Printing simple pyramid pattern using for loop
+
+
+
+
+// C++ code to demonstrate star pattern
+#include <iostream>
+using namespace std;
+
+// Function to demonstrate printing pattern
+void pypart(int n)
+{
+    // Outer loop to handle number of rows
+    // n in this case
+    for (int i = 0; i < n; i++) {
+
+        // Inner loop to handle number of columns
+        // values changing acc. to outer loop
+        for (int j = 0; j <= i; j++) {
+
+            // Printing stars
+            cout << "* ";
+        }
+
+        // Ending line after each row
+        cout << endl;
+    }
+}
+
+// Driver Function
+int main()
+{
+    int n = 5;
+    pypart(n);
+    return 0;
+}
+
+Output
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+Time Complexity: O(n2), where n is the input number of rows.
+Auxiliary Space: O(1),
+
+Method 2:
+Printing the above pattern using while Loop
+
+
+
+
+// C++ code to demonstrate star pattern
+#include <iostream>
+using namespace std;
+
+// Function to demonstrate printing pattern
+void pypart(int n)
+{
+    // Outer loop to handle number of rows
+    // n in this case
+    int i = 0, j = 0;
+    while (i < n) {
+
+        // Inner loop to handle number of columns
+        // values changing acc. to outer loop
+        while (j <= i) {
+
+            // Printing stars
+            cout << "* ";
+            j++;
+        }
+        j = 0; // we have to reset j value so as it can
+               // start from beginning and print * equal to
+               // i.
+        i++;
+        // Ending line after each row
+        cout << endl;
+    }
+}
+
+// Driver Code
+int main()
+{
+    int n = 5;
+    pypart(n);
+    return 0;
+}
+
+Output
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+Method 3:
+Printing the above pattern using recursion.
+
+
+
+
+// C++ code to demonstrate star pattern using recursion
+#include <iostream>
+using namespace std;
+
+// recursive function to print * on console
+void print(int n)
+{
+    if(n == 0) // base case
+    {
+        return;
+    }
+      cout << "* "; 
+      print(n - 1); // calling recursively
+}
+
+// recursive function to demonstrate printing pattern
+void pattern(int n)
+{
+    // base case
+    if (n == 0) 
+    {
+        return;
+    }
+    else 
+    {
+        // calling function recursively
+        pattern(n - 1);
+
+        // print "* " n times
+          print(n);
+      
+        // Ending line after each row
+        cout << endl;
+    }
+}
+
+// Driver Function
+int main()
+{
+    int n = 5;
+    pattern(n);
+}
+// this code is contributed by Shivesh Kumar Dwivedi
+
+Output
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+2. Flipped Simple Pyramid Pattern in C++
+Method 1:
+Printing the 180° rotated simple pyramid pattern using for loop.
+
+
+
+
+// C++ code to demonstrate star pattern
+#include <iostream>
+using namespace std;
+
+// Driver Code
+int main()
+{
+    int n = 5;
+
+    // looping rows
+    for (int i = n; i > 0; i--) {
+        for (int j = 1; j <= n; j++) // looping columns
+        {
+            if (j >= i) {
+                cout << "* ";
+            }
+            else {
+                cout << "  ";
+            }
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+Output
+        * 
+      * * 
+    * * * 
+  * * * * 
+* * * * * 
+Method 2:
+Printing the above pattern using while loop.
+
+
+
+
+// C++ code to demonstrate pattern printing
+#include <iostream>
+using namespace std;
+
+// Function to demonstrate printing pattern
+void pypart2(int n)
+{
+    int i = 0, j = 0, k = 0;
+    while (i < n) {
+
+        // for number of spaces
+        while (k < (n - i - 1)) {
+            cout << "  ";
+            k++;
+        }
+
+        // resetting k because we want to run k from
+        // beginning.
+        k = 0;
+        while (j <= i) {
+            cout << "* ";
+            j++;
+        }
+
+        // resetting k so as it can start from 0.
+        j = 0;
+        i++;
+        cout << endl;
+    }
+}
+
+// Driver Code
+int main()
+{
+    int n = 5;
+
+    // Function Call
+    pypart2(n);
+    return 0;
+}
+
+Output
+        * 
+      * * 
+    * * * 
+  * * * * 
+* * * * * 
+3. Inverted Pyramid Pattern in C++
+Method 1:
+Printing the pattern using for loop.
+
+
+
+
+// C++ code to demonstrate star pattern
+#include <iostream>
+using namespace std;
+
+// Function to demonstrate printing pattern
+void pypart(int n)
+{
+    // Outer loop to handle number of rows
+    // n in this case
+    for (int i = n; i > 0; i--) {
+
+        // Inner loop to handle number of columns
+        // values changing acc. to outer loop
+        for (int j = 0; j < i; j++) {
+
+            // Printing stars
+            cout << "* ";
+        }
+
+        // Ending line after each row
+        cout << endl;
+    }
+}
+
+// Driver Function
+int main()
+{
+    int n = 5;
+    pypart(n);
+    return 0;
+}
+
+Output
+* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+Method 2:
+Printing the pattern using while loop.
+
+
+
+
+// C++ code to demonstrate star pattern
+#include <iostream>
+using namespace std;
+
+// Function to demonstrate printing pattern
+void pypart(int n)
+{
+    // Outer loop to handle number of rows
+    // n in this case
+    int i = n, j = 0;
+    while (i > 0) {
+
+        // Inner loop to handle number of columns
+        // values changing acc. to outer loop
+        while (j < i) {
+
+            // Printing stars
+            cout << "* ";
+            j++;
+        }
+        j = 0; // we have to reset j value so as it can
+               // start from beginning and print * equal to
+               // i.
+        i--;
+        // Ending line after each row
+        cout << endl;
+    }
+}
+
+// Driver Code
+int main()
+{
+    int n = 5;
+    pypart(n);
+    return 0;
+}
+
+Output
+* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+Method 3:
+Printing the above pattern using recursion.
+
+
+
+
+// C++ code to print  Inverted Pyramid Pattern using
+// recursion
+#include <bits/stdc++.h>
+using namespace std;
+
+// recursive function for printing
+void print(int n) 
+{
+      if(n == 0) // base case
+    {
+        return;
+    }
+      cout << "* ";
+      print(n - 1); // recursive calling for printing
+}
+
+void pattern(int n)
+{
+    if (n == 0) {
+        return;
+    }
+       print(n);
+    cout << endl;
+    pattern(n - 1);
+}
+
+// driver function
+int main()
+{
+    int n = 5;
+    pattern(n);
+    return 0;
+}
+// This code is contributed by Shivesh Kumar Dwivedi
+
+Output
+* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+4. Flipped Inverted Pyramid Pattern in C++
+Method 1:
+Printing this pattern using for loop.
+
+
+
+
+// C++ code to demonstrate star pattern
+#include <iostream>
+using namespace std;
+
+// Function to demonstrate printing pattern
+void pypart2(int n)
+{
+    // number of spaces
+    int k = 2 * n - 2;
+
+    // Outer loop to handle number of rows
+    // n in this case
+    for (int i = n; i > 0; i--) {
+
+        // Inner loop to handle number spaces
+        // values changing acc. to requirement
+        for (int j = 0; j < n - i; j++)
+            cout << "  ";
+
+        // Decrementing k after each loop
+        k = k - 2;
+
+        // Inner loop to handle number of columns
+        // values changing acc. to outer loop
+        for (int j = 0; j < i; j++) {
+            // Printing stars
+            cout << "* ";
+        }
+
+        // Ending line after each row
+        cout << endl;
+    }
+}
+
+// Driver Code
+int main()
+{
+    int n = 5;
+
+    // Function Call
+    pypart2(n);
+    return 0;
+}
+
+Output
+* * * * * 
+  * * * * 
+    * * * 
+      * * 
+        * 
+
+Method 2: Printing the above pattern using while loop.
+
+
+
+
+// C++ code to demonstrate pattern printing
+#include <iostream>
+using namespace std;
+
+// Function to demonstrate printing pattern
+void pypart2(int n)
+{
+    int i = n, j = 0, k = 0;
+    while (i > 0) {
+
+        // for number of spaces
+        while (k < (n - i)) {
+            cout << "  ";
+            k++;
+        }
+
+        // resetting k because we want to run k from
+        // beginning.
+        k = 0;
+        while (j < i) {
+            cout << "* ";
+            j++;
+        }
+
+        // resetting k so as it can start from 0.
+        j = 0;
+        i--;
+        cout << endl;
+    }
+}
+
+// Driver Code
+int main()
+{
+    int n = 5;
+
+    // Function Call
+    pypart2(n);
+    return 0;
+}
+
+Output
+* * * * * 
+  * * * * 
+    * * * 
+      * * 
+        * 
+5. Triangle Pattern in C++
+Method 1:
+Printing the given pattern using for loop.
+
+
+
+
+// C++ code to demonstrate star pattern
+#include <iostream>
+using namespace std;
+
+// Function to demonstrate printing pattern
+void pypart2(int n)
+{
+    // Number of spaces
+    int i, j, k = n;
+
+    // Outer loop to handle number of rows
+    // n in this case
+    for (i = 1; i <= n; i++) {
+
+        // Inner loop for columns
+        for (j = 1; j <= n; j++) {
+
+            // Condition to print star pattern
+            if (j >= k)
+                cout << "* ";
+            else
+                cout << " ";
+        }
+        k--;
+        cout << "\n";
+    }
+}
+
+// Driver Code
+int main()
+{
+    int n = 5;
+    // Function Call
+    pypart2(n);
+    return 0;
+}
+
+Output
+    * 
+   * * 
+  * * * 
+ * * * * 
+* * * * * 
+Method 2:
+Printing the above pattern using while loop.
+
+
+
+
+// C++ code to demonstrate star pattern
+#include <iostream>
+using namespace std;
+
+// Function to demonstrate printing pattern
+void pypart2(int n)
+{
+    int i = 0, j = 0, k = 0;
+    while (i < n) {
+
+        // for spacing
+        while (k <= n - i - 2) {
+            cout << " ";
+            k++;
+        }
+        k = 0;
+
+        // For Pattern printing
+        while (j <= i) {
+            cout << "* ";
+            j++;
+        }
+        j = 0;
+        i++;
+        cout << endl;
+    }
+}
+
+// Driver Code
+int main()
+{
+    int n = 5;
+
+    // Function Call
+    pypart2(n);
+    return 0;
+}
+
+Output
+    * 
+   * * 
+  * * * 
+ * * * * 
+* * * * * 
+6. Inverted Triangle Pattern in C++
+Method 1:
+Printing the inverted triangle pattern using for loop.
+
+
+
+
+// C++ Program to print the inverted triangle pattern
+#include <iostream>
+using namespace std;
+
+// function to print inverted triangle
+void printInvTriangle(int n)
+{
+
+    // outer loop to go thruough every row
+    for (int i = 0; i < n; i++) {
+
+        // leading space counter
+        int space = i;
+
+        // inner loop to print space and star * in each row
+        for (int j = 0; j < 2 * n - i - 1; j++) {
+
+            // condition to check weather the star * or
+            // whitespace is to be printed
+            if (space) {
+                cout << "  ";
+                space--;
+            }
+            else {
+                cout << "* ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+// driver code
+int main()
+{
+    printInvTriangle(5);
+
+    return 0;
+}
+
+Output
+* * * * * * * * * 
+  * * * * * * * 
+    * * * * * 
+      * * * 
+        * 
+Method 2:
+Printing the above pattern using while loop.
+
+
+
+
+// C++ program to print inverted triangle pattern using
+// while loop
+#include <iostream>
+using namespace std;
+
+// function to print pattern
+void printInvTriangle(int n)
+{
+
+    // loop variables
+    int i = 0;
+    int j;
+
+    // outer loop to iterate through each row
+    while (i < n) {
+
+        // leading space counter
+        int space = i;
+        j = 0;
+
+        // inner loop to print pattern in each row
+        while (j < 2 * n - i - 1) {
+
+            // condition to check weather to print star * or
+            // whitespace
+            if (space) {
+                cout << "  ";
+                space--;
+            }
+            else {
+                cout << "* ";
+            }
+            j++;
+        }
+        cout << endl;
+        i++;
+    }
+}
+
+// driver code
+int main()
+{
+    printInvTriangle(5);
+
+    return 0;
+}
+
+Output
+* * * * * * * * * 
+  * * * * * * * 
+    * * * * * 
+      * * * 
+        * 
+7. Half Diamond Pattern in C++
+
+
+
+// C++ program to print rotated triangle pattern using
+// Nested for loop
+
+#include <iostream>
+using namespace std;
+
+// Function to print rotated triangle pattern of 2*n-1 rows
+// and n columns
+void printRotatedTriangle(int n)
+{
+    // First we print upper n rows out of the total 2*n-1
+    // rows
+    for (int i = 1; i <= n; i++) {
+
+        // j iterates till i to print i number of stars
+        // (*) in the (i)th row separated with one space
+        for (int j = 1; j <= i; j++) {
+              //Printing stars separated by one space
+            cout << "*" << " ";
+        }
+        // line ends after printing i stars in (i)th row
+        cout << endl;
+    }
+    // Now, we print other (n-1) rows of the triangle
+    for (int i = 1; i <= n - 1; i++) {
+
+        // j iterates till n-i to print n-i number of
+        // stars (*) in the (i)th row separated with one
+        // space
+        for (int j = 1; j <= n - i; j++) {
+              //Printing stars separated by one space
+            cout << "*" << " ";
+        }
+        // line ends after printing n-i stars in (i)th row
+        cout << endl;
+    }
+}
+
+//Driver Code
+int main()
+{
+
+    int n = 5;
+    //Function Call
+    printRotatedTriangle(n);
+    return 0;
+}
+
+Output
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+8. Flipped Half Diamond Pattern in C++
+
+
+
+// C++ Program to print the flipped rotated triangle star
+// (*) pattern
+#include <iostream>
+using namespace std;
+// Function to print the triangle with n columns and 2*n-1
+// rows
+void printRotatedTriangle(int n)
+{
+    // First we print upper n rows out of the total 2*n-1
+    // rows
+    for (int i = 1; i <= n; i++) {
+
+        // j iterates till n-i to print n-i number of spaces
+        // in the (i)th row
+        for (int j = 1; j <= n - i; j++) {
+            cout << " ";
+        }
+
+        // k iterates till i to print i number of stars (*)
+        // in the (i)th row
+        for (int k = 1; k <= i; k++) {
+            cout << "*";
+        }
+        // line ends after printing i stars in (i)th row
+        cout << endl;
+    }
+
+    // Now, we print other (n-1) rows of the triangle
+    for (int i = 1; i <= n - 1; i++) {
+
+        // j iterates till i to print i number of spaces in
+        // the (i)th row
+        for (int j = 1; j <= i; j++) {
+            cout << " ";
+        }
+
+        // k iterates till n-i to print n-i number of stars
+        // (*) in the (i)th row
+        for (int k = 1; k <= n - i; k++) {
+            cout << "*";
+        }
+        // line ends after printing n-i stars in (i)th row
+        cout << endl;
+    }
+}
+
+int main()
+{
+
+    int n = 5;
+    // Function call
+    printRotatedTriangle(n);
+    return 0;
+}
+
+Output
+    *
+   **
+  ***
+ ****
+*****
+ ****
+  ***
+   **
+    *
+9. Diamond Shaped Pattern in C++
+
+
+
+// C++ Program to print a Diamond shaped star (*) pattern
+#include <iostream>
+using namespace std;
+// Function to print a diamond pattern with 2*n-1 columns
+// and 2*n-1 rows
+void Diamond(int n)
+{
+    // First we print upper n rows out of the total 2*n-1
+    // rows
+    for (int i = 1; i <= n; i++) {
+
+        // j iterates till n-i to print n-i number of spaces
+        // in the (i)th row
+        for (int j = 1; j <= n - i; j++) {
+            cout << " ";
+        }
+
+        // k iterates till 2*i-1 to print 2*i-1 number of
+        // stars (*) in the (i)th row
+        for (int k = 1; k <= 2 * i - 1; k++) {
+            cout << "*";
+        }
+        // line ends after printing 2*i-1 stars in (i)th row
+        cout << endl;
+    }
+
+    // Now, we print other (n-1) rows of the pattern
+    for (int i = 1; i <= n - 1; i++) {
+
+        // j iterates till i to print i number of spaces in
+        // the (i)th row
+        for (int j = 1; j <= i; j++) {
+            cout << " ";
+        }
+
+        // k iterates till 2*(n-i)-1 to print 2*(n-i)-1
+        // number of stars (*) in the (i)th row
+        for (int k = 1; k <= 2 * (n - i) - 1; k++) {
+            cout << "*";
+        }
+        // line ends after printing 2*(n-i)-1 stars in (i)th
+        // row
+        cout << endl;
+    }
+}
+
+int main()
+{
+
+    int n = 5;
+    // Function call
+    Diamond(n);
+    return 0;
+}
+
+Output
+    *
+   ***
+  *****
+ *******
+*********
+ *******
+  *****
+   ***
+    *
+10. Hourglass Pattern in C++
+
+
+
+// C++ program to print hour glass pattern
+#include <iostream>
+using namespace std;
+
+void printHourglass(int rows)
+{
+    if (rows <= 0) {
+        return;
+    }
+    for (int i = 0; i < 2 * rows - 1; i++) {
+        if (i < rows) {
+            for (int j = 0; j < 2 * rows - i - 1; j++) {
+                if (j < i) {
+
+                    cout << "  ";
+                }
+                else {
+                    cout << "* ";
+                }
+            }
+        }
+        else {
+            for (int j = 0; j < i + 1; j++) {
+                if (j < 2 * rows - i - 2) {
+                    cout << "  ";
+                }
+                else {
+                    cout << "* ";
+                }
+            }
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
+// drive code
+int main()
+{
+    int rows = 5;
+    printHourglass(rows);
+    return 0;
+}
+
+Output
+* * * * * * * * * 
+  * * * * * * * 
+    * * * * * 
+      * * * 
+        * 
+      * * * 
+    * * * * * 
+  * * * * * * * 
+* * * * * * * * * 
+11. Number Pyramid Pattern in C++
+Method 1:
+Printing the number pyramid pattern using for loop.
+
+
+
+
+// C++ code to demonstrate printing
+// pattern of numbers
+#include <iostream>
+using namespace std;
+
+// Function to demonstrate printing
+// pattern
+void numpat(int n)
+{
+    // initializing starting number
+    int num = 1;
+
+    // Outer loop to handle number of rows
+    // n in this case
+    for (int i = 0; i < n; i++) {
+
+        // Inner loop to handle number of columns
+        // values changing acc. to outer loop
+        for (int j = 0; j <= i; j++)
+            cout << num << " ";
+
+        // Incrementing number at each column
+        num = num + 1;
+
+        // Ending line after each row
+        cout << endl;
+    }
+}
+
+// Driver Code
+int main()
+{
+    int n = 5;
+
+    // Function Call
+    numpat(n);
+    return 0;
+}
+
+Output
+1 
+2 2 
+3 3 3 
+4 4 4 4 
+5 5 5 5 5 
+Method 2:
+Printing the above pattern using while loop.
+
+
+
+
+// C++ Code for pattern Printing
+#include <iostream>
+using namespace std;
+
+// Function to demonstrate printing pattern
+void pypart(int n)
+{
+    int i = 1, j = 0;
+    while (i <= n) {
+        while (j <= i - 1) {
+            cout << i << " ";
+            j++;
+        }
+        j = 0;
+        i++;
+        cout << endl;
+    }
+}
+
+// Driver Code
+int main()
+{
+    int n = 5;
+
+    // Function Call
+    pypart(n);
+    return 0;
+}
+
+Output
+1 
+2 2 
+3 3 3 
+4 4 4 4 
+5 5 5 5 5 
+12. Numbers Pyramid Pattern without Reassigning in C++
+Method 1
+Printing the number pyramid pattern in C++ without reassigning using for loop.
+
+
+
+
+// C++ code to demonstrate  printing pattern of numbers
+#include <iostream>
+using namespace std;
+
+// Function to demonstrate printing pattern
+void numpat(int n)
+{
+    // Initialising starting number
+    int num = 1;
+
+    // Outer loop to handle number of rows
+    // n in this case
+    for (int i = 0; i < n; i++) {
+
+        // Inner loop to handle number of columns
+        // values changing acc. to outer loop
+        for (int j = 0; j <= i; j++) {
+
+            // Printing number
+            cout << num << " ";
+
+            // Incrementing number at each column
+            num = num + 1;
+        }
+
+        // Ending line after each row
+        cout << endl;
+    }
+}
+
+// Driver Code
+int main()
+{
+    int n = 5;
+
+    // Function Call
+    numpat(n);
+    return 0;
+}
+
+Output
+1 
+2 3 
+4 5 6 
+7 8 9 10 
+11 12 13 14 15 
+Method 2:
+Printing the above pattern using while loop.
+
+
+
+
+// C++ code to demonstrate  printing pattern of numbers
+#include <iostream>
+using namespace std;
+
+// Function to demonstrate printing pattern
+void pypart(int n)
+{
+    int i = 1, j = 0;
+
+    // here we declare an num variable which is
+    // assigned value 1
+    int num = 1;
+    while (i <= n) {
+        while (j <= i - 1) {
+
+            // Printing numbers
+            cout << num << " ";
+
+            // here we are increasing num for every
+            // iteration.
+            num++;
+            j++;
+        }
+        j = 0;
+        i++;
+
+        // Ending line after each row
+        cout << endl;
+    }
+}
+
+// Driver Code
+int main()
+{
+    int n = 5;
+
+    // Function Call
+    pypart(n);
+    return 0;
+}
+
+Output
+1 
+2 3 
+4 5 6 
+7 8 9 10 
+11 12 13 14 15 
+13. Continuous Number Pyramid after 180° Rotation in C++
+
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int rows = 5, count = 0, count1 = 0, k = 0;
+
+    for (int i = 1; i <= rows; ++i) {
+        for (int space = 1; space <= rows - i; ++space) {
+            cout << "  ";
+            ++count;
+        }
+
+        while (k != 2 * i - 1) {
+            if (count <= rows - 1) {
+                cout << i + k << " ";
+                ++count;
+            }
+
+            ++k;
+        }
+        count1 = count = k = 0;
+
+        cout << endl;
+    }
+    return 0;
+}
+
+// code by Kashif RB
+
+Output
+        1 
+      2 3 
+    3 4 5 
+  4 5 6 7 
+5 6 7 8 9 
+14. Palindrome Triangle Pattern in C++
+
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int rows = 5, count = 0, count1 = 0, k = 0;
+
+    for (int i = 1; i <= rows; ++i) {
+        for (int space = 1; space <= rows - i; ++space) {
+            cout << "  ";
+            ++count;
+        }
+
+        while (k != 2 * i - 1) {
+            if (count <= rows - 1) {
+                cout << i + k << " ";
+                ++count;
+            }
+            else {
+                ++count1;
+                cout << i + k - 2 * count1 << " ";
+            }
+            ++k;
+        }
+        count1 = count = k = 0;
+
+        cout << endl;
+    }
+    return 0;
+}
+
+// code by Kashif Rb
+
+Output
+        1 
+      2 3 2 
+    3 4 5 4 3 
+  4 5 6 7 6 5 4 
+5 6 7 8 9 8 7 6 5 
+15. Alphabet Pyramid Pattern in C++
+Method 1:
+Printing the given pattern using for loop.
+
+
+
+
+// C++ code to demonstrate printing pattern of alphabets
+#include <iostream>
+using namespace std;
+
+// Function to demonstrate printing pattern
+void alphabet(int n)
+{
+    // Initializing value corresponding to 'A'
+    // ASCII value
+    int num = 65;
+
+    // Outer loop to handle number of rows
+    // n in this case
+    for (int i = 0; i < n; i++) {
+
+        // Inner loop to handle number of columns
+        // values changing acc. to outer loop
+        for (int j = 0; j <= i; j++) {
+
+            // Explicitly converting to char
+            char ch = char(num);
+
+            // Printing char value
+            cout << ch << " ";
+        }
+
+        // Incrementing number
+        num = num + 1;
+
+        // Ending line after each row
+        cout << endl;
+    }
+}
+
+// Driver Function
+int main()
+{
+    int n = 5;
+    alphabet(n);
+    return 0;
+}
+
+Output
+A 
+B B 
+C C C 
+D D D D 
+E E E E E 
+Method 2:
+Printing the above pattern using while loop.
+
+
+
+
+// C++ code to demonstrate printing pattern of alphabets
+#include <iostream>
+using namespace std;
+
+// Function to demonstrate printing pattern
+void alphabet(int n)
+{
+    int i = 1, j = 0;
+
+    // assigning ASCII value of A which is 65
+    int num = 65;
+
+    // converting ASCII value to character,
+    // now our alpha variable is having
+    // value A after typecasting.
+    char alpha = char(num);
+    while (i <= n) {
+
+        // alpha is having A value and it
+        // will change as soon as alpha
+        // increased or decreased.
+        while (j <= i - 1) {
+            cout << alpha << " ";
+            j++;
+        }
+
+        // incrementing alpha value so as it can
+        // point to next character
+        alpha++;
+
+        // we have to reset j value so as it can
+        // start from beginning and print * equal to
+        // i.
+        j = 0;
+        i++;
+
+        // Ending line after each row
+        cout << endl;
+    }
+}
+
+// Driver Code
+int main()
+{
+    int n = 5;
+
+    // Function Call
+    alphabet(n);
+    return 0;
+}
+
+Output
+A 
+B B 
+C C C 
+D D D D 
+E E E E E 
+16. Continuous Alphabet Pyramid Pattern in C++
+Method 1:
+
+Printing the above pattern using for loop.
+
+
+
+
+// C++ code to demonstrate printing pattern of alphabets
+#include <iostream>
+using namespace std;
+
+// Function to demonstrate printing pattern
+void contalpha(int n)
+{
+    // Initializing value corresponding to 'A'
+    // ASCII value
+    int num = 65;
+
+    // Outer loop to handle number of rows
+    // n in this case
+    for (int i = 0; i < n; i++) {
+
+        // Inner loop to handle number of columns
+        // values changing acc. to outer loop
+        for (int j = 0; j <= i; j++) {
+
+            // Explicitly converting to char
+            char ch = char(num);
+
+            // Printing char value
+            cout << ch << " ";
+
+            // Incrementing number at each column
+            num = num + 1;
+        }
+
+        // Ending line after each row
+        cout << endl;
+    }
+}
+
+// Driver Code
+int main()
+{
+    int n = 5;
+
+    // Function Call
+    contalpha(n);
+    return 0;
+}
+
+Output
+A 
+B C 
+D E F 
+G H I J 
+K L M N O 
+Method 2:
+Printing the above pattern using while loop.
+
+
+
+
+// C++ code to demonstrate printing pattern of alphabets
+#include <iostream>
+using namespace std;
+
+// Function to demonstrate printing pattern
+void contalpha(int n)
+{
+    int i = 1, j = 0;
+    int num = 65;
+    char alpha = char(num);
+    while (i <= n) {
+        while (j <= i - 1) {
+            cout << alpha << " ";
+
+            // incrementing alpha value in every
+            // iteration so as it can assign to
+            // next character
+            alpha++;
+            j++;
+        }
+        j = 0;
+        i++;
+
+        // Ending line after each row
+        cout << endl;
+    }
+}
+
+// Driver Code
+int main()
+{
+    int n = 5;
+
+    // Function Call
+    contalpha(n);
+    return 0;
+}
+
+Output
+A 
+B C 
+D E F 
+G H I J 
+K L M N O 
